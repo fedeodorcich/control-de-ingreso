@@ -1,0 +1,43 @@
+.row{
+	margin: 0;
+	padding: 0;
+}
+
+#cartel{
+	position: fixed;	
+	background-color: #ebebeb;
+	z-index: 100;
+	height: 40%;
+	padding: 1em;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.traslucent{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,.7);
+	z-index: 10;
+}
+
+#anchipurac{
+	background-color: red;
+	margin: 0 auto;
+	height: 3em;
+}
+
+#observatorio{
+	background-color: lightgray;
+	margin: 0 auto;
+	height: 3em;
+}
+
+img{
+	max-width: 100%;
+	display: block;
+}
