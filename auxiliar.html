@@ -11,38 +11,93 @@
 </head>
 <body>
 
-	<div class="container" id="cartel">
-		<h2 class="col-12 text-center">Seleccione Área</h2>
-
-		<div class="row" style="margin-top: 10%;">
-			<div class="col-5 col-md-6" id="anchipurac">
-				<img src="img/logo-anchipurac.png" alt="">
+	
+	<div class="card p-3 col-md-4 container mt-5 col-11">
+		<div id="area">
+			<h3 class="text-center">Seleccione su área</h3>
+			<div class="col-md-12 row" style="padding: 0; margin: 0;">
+				<label class="col-md-6 col-6 hidden-card" for="anchipurac">
+					<img src="img/logo-anchipurac.png" class="img-fluid">
+					<input type="radio" name="choice" id="anchipurac" class="hidden">
+				</label>
+				<label class="col-md-6 col-6 hidden-card" for="observatorio">
+					<img src="img/logo-observatorio.png" class="img-fluid">
+					<input type="radio" name="choice" id="observatorio" class="hidden">
+				</label>
 			</div>
-
-			<div class="col-5 col-md-6" id="observatorio">
-				<img src="img/logo-observatorio.png" alt="">
+			<div class="col-md-12 text-center">
+					<button class="btn btn-primary" disabled id="siguiente">Siguiente</button>
 			</div>
 		</div>
-		
-
-	</div>
-	<div class="traslucent"></div>
-
-	<div>
-		<form action="">
-			<select name="" id="">
-			   <option value="">Alexis Tapia</option>
-			   <option value="">Martin Araya</option>
-			   <option value="">Laura Fernandez</option>
-		    </select>
+		<form action="" id="selecter" class="hidden">
+			<h3 class="mt-3 text-center">Seleccione su nombre</h3>
+			<select name="" id="select name" class="form-control mt-3 container col-md-7">
+				<option value="">option1</option>
+				<option value="">option2</option>
+				<option value="">option3</option>
+				<option value="">option4</option>
+				<option value="">option5</option>
+			</select>
+			<div class="text-center">
+				<button class="btn btn-primary mt-3" id="marcar">Marcar</button>
+				<button class="btn btn-success mt-3" id="consultar">Consultar</button>
+			</div>
 		</form>
-		<div>
-			<button disabled>Marcar</button>
-		</div>
+
+		<table class="table text-center mt-3 table-bordered col-md-7 container hidden">
+  			<thead>
+    			<tr>
+      			<th scope="col">Entrada</th>
+      			<th scope="col">Salida</th>
+   			 </tr>
+ 			 </thead>
+  			<tbody>
+   			 	<tr>
+      				<td>10:00hs</td>
+      				<td>23:00hs</td>
+    			</tr>
+  			</tbody>
+
+		</table>
 	</div>
 
 	<script src="js/jquery.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			let anchi = $('#anchipurac').closest('.hidden-card');
+			let obs = $('#observatorio').closest('.hidden-card');
+			
+			$('label.hidden-card').click(function(){
+				if ($('#anchipurac').is(':checked')) 
+				{
+					$(anchi).addClass('selected');
+					$(obs).removeClass('selected');
+					
+				}
+				if($('#observatorio').is(':checked')){
+					$(anchi).removeClass('selected');
+					
+					$(obs).addClass('selected');
+				}
+				$('#siguiente').prop("disabled", false);
+			});
+			$('#siguiente').on('click',function(){
+				if($(this).is(':enabled'))
+				{
+					$('#area').fadeOut(function(){
+						$('#selecter').fadeIn();
+					});
+				}
+			});
+			$('#consultar').on('click',function(){
+				event.preventDefault();
+				$('.table').fadeIn();
+			});
+			
+		});
+	</script>
 </body>
 </html>
