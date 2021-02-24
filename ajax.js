@@ -14,11 +14,13 @@ function getPeople(value){
 }
 
 function getLastEntrys(name){
+
 	$.ajax({
 		url: 'php/getLastEntrys.php',
 		type: 'POST',
 		data: {name},
 		success:function(data){
+			$('#body-table tr').empty();
 			console.log(data);
 			$('#body-table tr').append(data);
 		},
