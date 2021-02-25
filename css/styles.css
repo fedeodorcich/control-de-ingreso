@@ -14,6 +14,17 @@ body{
 	padding: 1em;
 	border:none;
 	border-radius:3px;
+	transition: all .4s ease-in-out;
+	cursor:pointer;
+}
+
+img{
+	transition: all .4s ease-in-out;
+	cursor:pointer;
+}
+
+.selected img{
+	filter: hue-rotate(180deg);
 }
 
 #siguiente{

@@ -14,7 +14,7 @@
 	
 	<div class="card p-3 col-md-4 container mt-5 col-11">
 		<div id="area">
-			<h3 class="text-center">Seleccione su área</h3>
+			<h3 class="text-center mb-2">Seleccione su área</h3>
 			<div class="col-md-12 row" style="padding: 0; margin: 0;">
 				<label class="col-md-6 col-6 hidden-card" for="anchipurac">
 					<img src="img/logo-anchipurac.png" class="img-fluid">
@@ -83,6 +83,8 @@
 				$('#siguiente').prop("disabled", false);
 			});
 			$('#siguiente').on('click',function(){
+				$('#select-name').empty();
+				console.log(val);
 				getPeople(val);
 				if($(this).is(':enabled'))
 				{
@@ -96,6 +98,7 @@
 				$('#selecter').fadeOut(function(){
 					$('#area').fadeIn();
 				});
+				$('table').fadeOut();
 			});
 			$('#consultar').on('click',function(){
 				event.preventDefault();
