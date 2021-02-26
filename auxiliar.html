@@ -107,6 +107,11 @@
 				getLastEntrys(name);
 				$('.table').fadeIn();
 			});
+			//--------------------------------------------MARCADO---------
+			$('#marcar').on('click',function(){
+				getLastHours($('#nombre').val());
+				marcar($('#nombre').val());
+			});
 			
 		});
 	</script>
