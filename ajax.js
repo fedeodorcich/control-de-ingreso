@@ -4,7 +4,6 @@ function getPeople(value){
 		type: 'POST',
 		data: {value},
 		success:function(data){
-			console.log(data);
 			$('#select-name').append(data);
 		},
 		error:function(){
@@ -21,11 +20,39 @@ function getLastEntrys(name){
 		data: {name},
 		success:function(data){
 			$('#body-table tr').empty();
-			console.log(data);
-			$('#body-table tr').append(data);
+			$('#alert').empty();
+			if(data){
+				console.log(data);
+				$('#body-table tr').append(data);
+			}else{
+				$('#alert').append("Seleccione nombre");
+			}
 		},
 		error:function(){
 			console.log("HUBO UN ERROR");
 		}
 	});
 }
+
+
+function marcar (name){
+	
+	$.ajax({
+		url: 'php/marcado.php',
+		type: 'POST',
+		data: {name},
+		success:function(data){
+			$('#alert').empty();
+			if(data){
+				console.log(data);
+				$('#alert').append(data);
+			}else{
+				$('#alert').append("Seleccione nombre");
+			}
+		},
+		error:function(){
+			console.log("HUBO UN ERROR");
+		}
+	});
+
+} 

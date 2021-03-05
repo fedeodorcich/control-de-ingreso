@@ -54,6 +54,7 @@
   			</tbody>
 
 		</table>
+		<div id="alert"></div>
 	</div>
 
 	<script src="js/jquery.js"></script>
@@ -84,7 +85,6 @@
 			});
 			$('#siguiente').on('click',function(){
 				$('#select-name').empty();
-				console.log(val);
 				getPeople(val);
 				if($(this).is(':enabled'))
 				{
@@ -103,14 +103,15 @@
 			$('#consultar').on('click',function(){
 				event.preventDefault();
 				let name = $('#select-name').val();
-				console.log(name);
 				getLastEntrys(name);
-				$('.table').fadeIn();
+				if (name != 'none'){
+					$('.table').fadeIn();
+				}
 			});
 			//--------------------------------------------MARCADO---------
 			$('#marcar').on('click',function(){
-				getLastHours($('#nombre').val());
-				marcar($('#nombre').val());
+				let name = $('#select-name').val();
+				marcar(name);
 			});
 			
 		});
