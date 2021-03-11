@@ -16,6 +16,8 @@
 			{
 				echo "<td>".$res['entrada']."</td><td>".$res['salida']."</td>";
 			}	
+		}else{
+			echo "<td> Sin registros </td><td>Sin registros </td>";;
 		}
 	}else{
 		echo false;

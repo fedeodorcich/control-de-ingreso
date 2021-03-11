@@ -19,6 +19,7 @@ function getLastEntrys(name){
 		type: 'POST',
 		data: {name},
 		success:function(data){
+
 			$('#body-table tr').empty();
 			$('#alert').empty();
 			if(data){
@@ -26,6 +27,7 @@ function getLastEntrys(name){
 				$('#alert').empty();
 				$('#body-table tr').append(data);
 			}else{
+				$('.table').fadeOut(0);
 				$('#alert').empty();
 				$('#alert').append('<div class="mt-3 alert alert-danger text-center" role="alert">'+
   									'Seleccione un nombre'+
