@@ -1,6 +1,6 @@
 <?php 
 	require('conexion.php');
-	$name=$_POST['name'];
+	$name = utf8_decode($_POST['name']);
 
 	if($name != 'none'){
 		$consulta="SELECT * FROM asistencia WHERE nombre= '$name' order by id desc limit 1";
