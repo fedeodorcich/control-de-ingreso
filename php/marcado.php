@@ -4,7 +4,7 @@
 	//-------cargar salida o cargar entrada segun corresponda
 	//-------modificar la cuestion de las entradas y salidas
 
-	$nombre=$_POST['name'];	
+	$nombre = utf8_decode($_POST['name']);	
 
 	if($nombre != 'none'){
 
@@ -42,7 +42,9 @@
 			$entrada="INSERT INTO `asistencia` (`id`, `nombre`, `entrada`,`salida`) VALUES ('0', '$nombre', current_timestamp(),current_timestamp())";
 			$query=mysqli_query($conexion,$entrada);
 			if($query){
-				echo 'Marcado entrada correcto';			
+				echo '<div class="mt-3 alert alert-primary text-center" role="alert">
+  									<b>Entrada</b> marcada con éxito
+									</div>';	
 			}else{
 				echo 'ERROR AL MARCAR ENTRADA';
 			}
