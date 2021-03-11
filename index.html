@@ -84,6 +84,9 @@
 				$('#siguiente').prop("disabled", false);
 			});
 			$('#siguiente').on('click',function(){
+				$('#alert').fadeIn(function(){
+					$('#alert').empty();
+				});
 				$('#select-name').empty();
 				getPeople(val);
 				if($(this).is(':enabled'))
@@ -94,7 +97,9 @@
 				}
 			});
 			$('#atras').click(function(){
-				$('#alert').fadeOut();
+				$('#alert').fadeOut(function(){
+					$('#alert').empty();
+				});
 				event.preventDefault();
 				$('#selecter').fadeOut(function(){
 					$('#area').fadeIn();
