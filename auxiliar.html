@@ -94,6 +94,7 @@
 				}
 			});
 			$('#atras').click(function(){
+				$('#alert').fadeOut();
 				event.preventDefault();
 				$('#selecter').fadeOut(function(){
 					$('#area').fadeIn();
@@ -110,6 +111,7 @@
 			});
 			//--------------------------------------------MARCADO---------
 			$('#marcar').on('click',function(){
+				event.preventDefault();
 				let name = $('#select-name').val();
 				marcar(name);
 			});

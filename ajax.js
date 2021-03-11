@@ -23,9 +23,13 @@ function getLastEntrys(name){
 			$('#alert').empty();
 			if(data){
 				console.log(data);
+				$('#alert').empty();
 				$('#body-table tr').append(data);
 			}else{
-				$('#alert').append("Seleccione nombre");
+				$('#alert').empty();
+				$('#alert').append('<div class="mt-3 alert alert-danger text-center" role="alert">'+
+  									'Seleccione un nombre'+
+									'</div>');
 			}
 		},
 		error:function(){
@@ -45,9 +49,17 @@ function marcar (name){
 			$('#alert').empty();
 			if(data){
 				console.log(data);
-				$('#alert').append(data);
+				$('.table').fadeOut(function(){
+					$('#alert').append(data);
+				});
+				
 			}else{
-				$('#alert').append("Seleccione nombre");
+				$('.table').fadeOut(function(){
+					$('#alert').append('<div class="mt-3 alert alert-danger text-center" role="alert">'+
+  									'Seleccione un nombre'+
+									'</div>');
+				});
+				
 			}
 		},
 		error:function(){
