@@ -8,7 +8,7 @@
 
 	if($nombre != 'none'){
 
-		$preprequery=mysqli_query($conexion,"SELECT * FROM asistencia WHERE nombre='$nombre' ORDER BY entrada DESC LIMIT 1");
+		$preprequery=mysqli_query($conexion,"SELECT * FROM asistencia WHERE nombre='$nombre' ORDER BY id DESC LIMIT 1");
 		$consult=mysqli_fetch_array($preprequery);
 
 		if($consult){
